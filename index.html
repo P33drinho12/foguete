@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fogolet</title>
+<style>
+    body
+    {
+        width: 100%;
+        height: 150vh;
+        background-image: linear-gradient(0deg, lightblue, darkblue);
+        overflow: hidden;
+    }
+    .foguete
+    {
+        position: absolute;
+        top: 650px;
+        left: 750px;
+    }
+    .lua
+    {
+        position: absolute;
+        top: 600px;
+        left: 445px;
+        margin: -200;
+    }
+    .terra
+    {
+        position:absolute;
+        top: ;
+        left: 200px;
+    }
+    .aste
+    {
+        position: absolute;
+        top: -100px;
+        left: 400px;
+    }
+</style>
+</head>
+<body>
+    <img src="asteroide.png" width="60px" height="40px" class="aste">
+    <img src="terra.png" width="300px" height="300px" class="terra">
+    <img src="lua.png" width="700px" height="700px" class="lua">
+    <img id="foguete" src="foguete.gif" width="80px"  class="foguete">
+
+</body>
+<script src="jquery-3.7.0.min.js"></script>
+<script>
+    document.onkeydown = Pega_Tecla;
+
+function Pega_Tecla(e) 
+{	
+    e = e || window.event;
+
+    tecla = e.keyCode;
+    console.log(tecla); // MOSTRA O CÓDIGO DA TECLA PRESSIONADA
+    data = new Date()
+    tempo_inicial = data.getTime()
+    if(tempo_final - tempo_inicial > 1000)
+    {
+        tempo_inicial = tempo_final
+    
+    if(tecla == 37)
+    {
+        x = x - 20 
+    }
+    if(tecla == 39)
+    {
+        x = x + 20 
+    }
+}
+}
+    temporizador = setTimeout(Subir, 1000)
+    x = 800
+    y = 60
+    TOPO = ""
+    ESQUERDA = ""
+    function Subir()
+    {
+        TOPO = y + "px"
+        $("#foguete").animate({top:TOPO}, 1000)
+        temporizador = null
+        temporizador = setInterval( Decer, 1000)
+    }
+    function Decer()
+    {
+        y = y + 20
+
+        TOPO = y + "px"
+        ESQUERDA = x + "px"
+        $("#foguete").animate({left:ESQUERDA, top:TOPO}, 1000)
+        
+        if (y > 550)
+        {
+            y = 0
+        }
+        
+        
+
+
+    }
+
+</script>
+</html>
